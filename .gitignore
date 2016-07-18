@@ -1,0 +1,5 @@
+#debugs
+npm-debug.*
+
+#modules
+node_modules
