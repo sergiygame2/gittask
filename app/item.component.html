@@ -1,0 +1,101 @@
+<nav>
+      <div class="container-fluid"  style=" background-color: blue;">
+        <div class="navbar-header">
+          <a class="navbar-brand " href="../index.html" style="color: white;">GoogleStore</a>
+        </div>
+        <ul class="nav navbar-nav">         
+          <!--  <button class="slide-menu-menu-button" type="button">>></button> -->      
+        </ul>
+              <ul class="nav navbar-nav navbar-right">
+               <li><a href="#" style="color: white;"><span class="glyphicon glyphicon-usd"></span></a></li>
+               <li><a href="#" style="color: white;"><span class="glyphicon glyphicon-user"></span></a></li>
+               <li><a href="#" style="color: white;"><span class="glyphicon glyphicon-heart"></span></a></li>
+               <li><a href="#" style="color: white;"><span class="glyphicon glyphicon-shopping-cart"></span>
+               <span  ([ngModel])="totalItems" class="badge" style="visibility: visible;" >{{totalItems}}</span>
+                </a></li>
+          </ul>
+      </div>
+  </nav>
+
+    <nav>
+      <div class="container-fluid lower-menu">
+        <ul class="nav navbar-nav">
+         <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: red;" >Companies <span class="caret"></span></a>
+              <ul class="dropdown-menu" >
+              <li><a href="#" style="color: red;" >Google v1.0</a></li>
+              <li><a href="#" style="color: red;" >Google v2.0</a></li>
+              <li><a href="#" style="color: red;" >Google Final</a></li>
+              </ul>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: blue;" >Departments <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+              <li><a href="#"  style="color: blue;" >Google Serach</a></li>
+              <li><a href="#"  style="color: blue;" >GMAIL</a></li>
+              <li><a href="#"  style="color: blue;" >YOUTUBE</a></li>
+              </ul>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: green;" >Products<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+              <li><a href="#"  style="color: green;">Google Home</a></li>
+              <li><a href="#"  style="color: green;">Google Glass</a></li>
+              <li><a href="#"  style="color: green;">Nexus</a></li>
+              </ul>
+        </ul>
+      </div>
+    </nav>
+<div class="top">
+  <div class="col-sm-6">
+    <h3 style="padding-left:20px;">Shopping cart</h3>
+  </div>
+  <div class="col-sm-6" style="margin-top:10px;">
+    <button type="button" id="check" class="btn btn-danger">Checkout!</button>
+  </div>
+</div>
+<div class="container" style="width:97%;margin:0auto;">
+        <table class="table table-bordered">
+              <th class="col-sm-2" style="font-size:17px; height:2em; padding-top: 8px;">Photo</th>
+              <th class="col-sm-2" style="font-size:17px; height:2em; padding-top: 8px;">Name</th>
+              <th class="col-sm-2" style="font-size:17px; height:2em; padding-top: 8px;">Price</th>
+              <th class="col-sm-2" style="font-size:17px; height:2em; padding-top: 8px;">Amount</th>
+              <th class="col-sm-2" style="font-size:17px; height:2em; padding-top: 8px;">Total</th>
+              <th class="col-sm-2" style="font-size:17px; height:2em; padding-top: 8px;"></th>
+              <tr *ngFor="let item of items"  >
+                <td class="col-sm-2">
+                  <img src={{item.url}} alt="Image">
+                </td>
+                <td class="col-sm-3">{{item.name}}</td>
+                <td class="col-sm-2">$<p class="intPrice" value="" attr="">{{item.price}}</p>{{item.priceType}}</td>
+                <td class="col-sm-3">
+                  <button type="button"  id="amount-button" (click)="decrement(item)" > < </button>
+                  <input type="text" value="{{item.amount}}" style="width:50px; text-align:center;" />
+                  <button type="button" id="amount-button" (click)="increment(item)"> > </button>
+                </td>
+                <td class="col-sm-2">${{item.amount * item.price}}{{item.priceType}}</td>
+                <td class="col-sm-2" style="width:3%;"> 
+                    <span class="glyphicon glyphicon-remove" id="del1" (click)="removeItem(item);"></span>
+                </td>
+              </tr>
+        </table>
+    </div>
+      <div class="promo" style=" float:right; padding:0; text-align:right;">
+        <text>HAVE A PROMO CODE?</text>
+        <input type="text"  class="promo-input" name="promocode" [(ngModel)]="promo">&nbsp;
+        <button type="button" (click)="getDiscount();" id="promo" class="btn btn-danger" >Apply!</button><br><br>
+      </div>
+  <div class="col-sm-12">
+      <div class="total">
+        <div class="col-sm-6" style="padding:0;">
+          <h4>Subtotal: </h4>
+          <h4>Discount: </h4>
+          <hr>
+          <h4>Estimated total : </h4>
+        </div>
+        <div class="col-sm-6" style="text-align:right; padding:0;"> 
+          <h4 ([ngModel])="totalPrice">${{totalPrice}}{{isTypeB ? 'B' : 'K'}}</h4>
+          <h4 ([ngModel])="discount">${{discount}}{{isTypeB ? 'B' : 'K'}}</h4>
+          <hr>
+          <h4 ([ngModel])="totalPrice" >${{totalPrice - discount}}{{isTypeB ? 'B' : 'K'}}</h4>
+        </div>
+      </div>
+    </div>

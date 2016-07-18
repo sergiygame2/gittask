@@ -1,0 +1,73 @@
+#check{
+	float:right; 
+	margin-right:20px; 
+	width:250px; 
+	height:35px;
+}
+
+.panel{
+	width: 95%; margin: auto;
+}
+.t-head{
+    padding-top: 10px;
+    padding-left: 8px;
+    height: 3em;
+}
+.col-sm-3{
+	font-size: 20px;
+}
+.col-sm-2{
+	font-size: 20px;
+}
+.col-sm-2 img{
+	height: 5em;
+	width: 70%;
+}
+.total{
+	float: right;
+	text-align: left;
+    right: 0px;
+    width: 30%;
+    padding-right: 20px;
+}
+.price-display{
+	text-align: right;	
+	display:inline;
+}
+.checkout{
+	float: right;
+	margin-right: 33px;
+	width:250px;
+	height: 30px;
+	background: red;
+}
+
+.promo{
+	margin-top: 5px;
+	margin-right: 33px;
+}
+
+.intPrice{
+	display: inline;
+}
+.item-total-price{
+    font-size: 20px;
+    width: 10%;
+}
+.glyphicon-remove{
+    color:blue; 
+}
+.glyphicon-remove:hover{
+    color:red;
+    cursor: pointer;
+}
+.promo-input{
+	width:145px;
+	height: 34px;
+}
+.promo-input input[type="text"] {
+  	width: 15%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
